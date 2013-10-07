@@ -1,39 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-	<display-name>
+    <display-name>
 	StudentSystem</display-name>
-	<servlet>
-		<description>
+    <servlet>
+        <description>
 		</description>
-		<display-name>
+        <display-name>
 		Loginvalid</display-name>
-		<servlet-name>Loginvalid</servlet-name>
-		<servlet-class>
+        <servlet-name>Loginvalid</servlet-name>
+        <servlet-class>
 		Loginvalid</servlet-class>
-	</servlet>
-	<servlet>
-		<description>
+    </servlet>
+    <servlet>
+        <description>
 		</description>
-		<display-name>
+        <display-name>
 		LoginDAO</display-name>
-		<servlet-name>LoginDAO</servlet-name>
-		<servlet-class>
+        <servlet-name>LoginDAO</servlet-name>
+        <servlet-class>
 		LoginDAO</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Loginvalid</servlet-name>
-		<url-pattern>/Loginvalid</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>LoginDAO</servlet-name>
-		<url-pattern>/LoginDAO</url-pattern>
-	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminAddStudDAO</servlet-name>
+        <servlet-class>BusinessObjects.AdminAddStudDAO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudView</servlet-name>
+        <servlet-class>BusinessObjects.StudView</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatestudDao</servlet-name>
+        <servlet-class>BusinessObjects.UpdatestudDao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateStud</servlet-name>
+        <servlet-class>BusinessObjects.UpdateStud</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Loginvalid</servlet-name>
+        <url-pattern>/Loginvalid</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginDAO</servlet-name>
+        <url-pattern>/LoginDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminAddStudDAO</servlet-name>
+        <url-pattern>/AdminAddStudDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudView</servlet-name>
+        <url-pattern>/StudView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatestudDao</servlet-name>
+        <url-pattern>/UpdatestudDao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStud</servlet-name>
+        <url-pattern>/UpdateStud</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

@@ -1,6 +1,10 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
-  
+  <%@page import="java.sql.ResultSet"%>
+<%@page import="BusinessObjects.UpdateStud"%>
+<%@page import="BusinessObjects.StudView"%>
+<%@page import="java.sql.*"%>
+    
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -33,11 +37,22 @@
 </div>
 <form  method="post" action="AddingStudents.jsp">
 	<div class="adding" >
-		
-			
+		 <%
+            UpdateStud obj=new UpdateStud();
+            ResultSet rs=obj.getRecord();
+            
+            if(rs.next()){
+                
+            
+            String userval=rs.getString(2);
+                
+            %>
 			<div>
 			<label>Student UserName		:</label>
-			<input type="text" name="studentname"></div>
+			<input type="text" name="studentname" value='<%=rs.getString(2)%>'></div> 
+            <%
+            }
+            %>
                         <div>
 			<label>Student FirstName		:</label>
 			<input type="text" name="firstname"></div>
@@ -52,7 +67,7 @@
 			<input type="text" name="mobile"></div>
                         <div>
 			<label>Student Course  	:</label>
-			<input type="text" name="studentcourse"></div><div>
+                        <input type="text" name="studentcourse" ></div><div>
 			<label>Student Address 	:</label>
                         
 			<input type="text" name="studentaddress"> </div>

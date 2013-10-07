@@ -1,7 +1,7 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" %>
-    <%@page import ="java.util.*" %>
-    <%@page import="javax.servlet.http.HttpSession"%>
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="BusinessObjects.StudView"%>
+    
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,51 +28,61 @@
 <li><a href="deletestudents.jsp">Delete student details</a></li>
 </ul>
 </div>
-		<div class="mainmenu">
-			<div class="label">
-				 <h3>Student Details</h3>
-			</div>
-                    
-                    <div class="recordslist">
-                           
-                        <div class="recordlabels">
-                            <table bgcolor="red">
-                                <td>
-                                    helloo
-                                </td>
-                                <td>
-                                    helloo
-                                </td>
-                        </table>
-                            <label class="labels">
-                                S.NO
-                            </label>
-                            <label class="labels">
-                                UserName
-                            </label>
-                            <label class="labels">
-                                FIrst Name
-                            </label>
-                            <label class="labels">
-                                Last Name
-                            </label>
-                            <label class="labels">
-                                Course
-                            </label>
-                            <label class="labels">
-                                Address
-                            </label>
-                            <label class="labels">
-                                Mobile
-                            </label>
-                        </div>
-                        
-                    </div>
-		</div>
-		<div>
-		
-		</div>
-
-	
+<div class="mainmenu">
+    <div class="label">
+        <h3>Student Details</h3>
+    </div>
+    <div class="recordslist">
+    <div class="recordlabels">
+    <form method="GET" action="AddStudValid">  
+        <table style="text-align: center">
+        <tr class="border">
+        <th class="border1"> ID</th>
+        <th class="border2">UserName</th>
+        <th class="border2">First Name</th>
+        <th class="border2">Last Name</th>
+        <th class="border2">Password</th>
+        <th class="border6">Course</th>
+        <th class="border2">Mobile</th>
+        <th class="border8">Address</th>
+    </tr>
+            <%
+            StudView obj=new StudView();
+            ResultSet rs=obj.getRecord();
+            ResultSet rs1=obj.getRecord();
+            if(rs1.next())
+            {
+            while(rs.next())
+             {
+             %>
+                <tr>
+                    <td><%=rs.getString(1) %></td>
+                    <td><%=rs.getString(2) %></td>
+                    <td><%=rs.getString(3) %></td>
+                    <td><%=rs.getString(4) %></td>
+                    <td><%=rs.getString(5) %></td>
+                    <td><%=rs.getString(6) %></td>
+                    <td><%=rs.getString(7) %></td>
+                    <td><%=rs.getString(8) %></td>            
+                </tr>
+                <%
+		}
+             }
+		else
+		{
+		%>
+		<tr>
+                    <td colspan=10 align="center">No record Found</td>
+                </tr>
+		<%
+		}
+		%>
+      </table>
+    </form>
+</div>
+</div>
+</div>
+<div>
+</div>
 </body>
 </html>

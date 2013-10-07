@@ -1,5 +1,4 @@
 package BusinessObjects;
-
 import java.sql.*;
 import DataSourceObjects.*;
 import TransferObjects.*;
@@ -24,6 +23,10 @@ public class AddstudDAO
          {
              //System.out.print("hello");
              id = rs1.getInt("NextVal");
+         }
+         else
+         {
+             System.out.println("username already exists");
          }
     	pstmt=con.prepareStatement("Insert into logintable(id,username,password,usertype) values(" + id + ", '"+ bean.getuserName() +"', '"+ bean.getpasword() +"', '"+ bean.getusertype() +"')");    	   
     	rowsAffected=pstmt.executeUpdate();

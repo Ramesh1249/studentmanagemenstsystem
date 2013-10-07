@@ -43,8 +43,8 @@ public class Loginvalid extends HttpServlet {
 			if(rs.next())
 			{
 				String adm="admin";
-				String stu="stud";
-				String fac="facul";
+				String stu="student";
+				String fac="staff";
 				String varb=rs.getString(4);
                                 
 					if(varb.equals(adm))
