@@ -2,7 +2,7 @@ package TransferObjects;
 
 import java.io.Serializable;
 
-public class AddstudBean implements Serializable
+public class SaveStudBean implements Serializable
 {
     String studId;
     String userName;
@@ -13,7 +13,6 @@ public class AddstudBean implements Serializable
     String usertype;
     String address;
     String mobile;
-    String coursetxt;
         
             public String getfirstname() {
         return firstname;
@@ -42,8 +41,8 @@ public class AddstudBean implements Serializable
         public String getstudId() {
 		return studId;
 	}
-	public void setstudId(String studentId) {
-		this.studId = studentId;
+	public void setstudId(String studId) {
+		this.studId = studId;
 	}
 	public String getuserName() {
 		return userName;
@@ -77,15 +76,6 @@ public class AddstudBean implements Serializable
 	public void setAddress(String address){
 		this.address=address;
 	}
-
-    public String getcoursetxt() {
-        return coursetxt;
-    }
-
-    public void setcoursetxt(String coursetxt) {
-        this.coursetxt = coursetxt;
-    }
-        
 
     
     

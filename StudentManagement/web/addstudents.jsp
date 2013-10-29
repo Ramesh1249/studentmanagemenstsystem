@@ -1,15 +1,52 @@
+
+
+<%
+    String uname=(String)session.getAttribute("username");
+    if(uname==null)
+    {
+    %>
+    <html>` 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body onload="valid(event)">
+	<div class="logo">
+		<header>
+			<div>
+				<img src="oie_transparent.png" alt="logo" width="230" height="59">
+			</div>
+		</header>
+	</div>
+	<div class="logindiv">
+            <div id="msg" style="text-align: center">Please Login to access the webpage</b>
+            
+            <a href="index.jsp">Click Here to Login</a>
+            </div>
+	</div>
+    
+    
+    
+	</body>
+</html>
+			
+  <%    }else
+      {
+    
+%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
-  
-
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Administrator Home Page</title>
 <link rel="stylesheet" type="text/css" href="Admin.css">
-</head>
 
+</head>
+       
 <body>
 
 <div class="logo">
@@ -31,40 +68,60 @@
 <div class="label">
 <h3>Add Students</h3>
 </div>
-<form  method="post" action="AddingStudents.jsp">
+    <form  method="post" action="AddingStudents.jsp" name="form1">
 	<div class="adding" >
 		
 			
 			<div>
 			<label>Student UserName		:</label>
-			<input type="text" name="studentname"></div>
+                        <input type="text" name="userName" onchange="change(event)" id="uname"></div>
                         <div>
-			<label>Student FirstName		:</label>
+			<label>Student First Name		:</label>
 			<input type="text" name="firstname"></div>
                         <div>
 			<label>Student LastName		:</label>
-			<input type="text" name="lastname"></div>
+                        <input type="text" name="lastname" onclick="valid(event)"></div>
                         <div>
 			<label>Student Password	:</label>
-			<input type="password" name="studentpassword"></div>
+			<input type="text" name="pasword"></div>
                         <div>
 			<label>Student Mobile No		:</label>
-			<input type="text" name="mobile"></div>
-                        <div>
+                        <input id="mobilenum" type="text" name="mobile" onchange="valid(this)"></div><div>
 			<label>Student Course  	:</label>
-			<input type="text" name="studentcourse"></div><div>
+			<input type="text" name="course"></div><div>
 			<label>Student Address 	:</label>
                         
-			<input type="text" name="studentaddress"> </div>
+			<input type="text" name="address"> </div>
                         <div>
-			<label>User Type	:</label>
-			<input type="text" name="usertype"></div>
+                            <label> User Type   :</label>
+                            <input type="text" name="usertype" value="student" readonly>
+                        </div>
+
+
 			<div class="submit" >
-			<input type="submit" value="ADD" style="cursor:pointer">
+                            <input type="submit" value="ADD" style="cursor:pointer">
 			<input type="reset" value="Cancel" style="cursor:pointer">
 			</div>
 		</div>
 		</form>
 	</div>
+<script>
+    function valid(){
+    var inpt=document.getElementById(mobilenum);
+    
+        var yz=inpt.length;
+        console.log(yz);
+    
+    }
+    function vaid(event)
+    {
+     var x= document.getElementById(mobilenum);
+     
+     console.log(x);
+    }
+    </script>
 </body>
 </html>
+<%
+    }
+    %>

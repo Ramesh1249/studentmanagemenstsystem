@@ -13,12 +13,14 @@ public class LoginBean implements Serializable
 	}
 	public void setusername(String username) {
 		this.username = username;
+                username=username;
 	}
 	public String getpassword() {
 		return password;
 	}
 	public void setpassword(String password) {
 		this.password = password;
+                password=password;
 	}
 	public String getusertype() {
 		return usertype;

@@ -1,3 +1,39 @@
+
+<%
+    String uname=(String)session.getAttribute("username");
+    if(uname==null)
+    {
+    %>
+    <html>` 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+	<div class="logo">
+		<header>
+			<div>
+				<img src="oie_transparent.png" alt="logo" width="230" height="59">
+			</div>
+		</header>
+	</div>
+	<div class="logindiv">
+            <div id="msg" style="text-align: center">Please Login to access the webpage</b>
+            
+            <a href="index.jsp">Click Here to Login</a>
+            </div>
+	</div>
+    
+    
+    
+	</body>
+</html>
+			
+  <%    }else
+      {
+    
+%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
     <%@page import ="java.util.*" %>
@@ -27,11 +63,13 @@
 		<li>
 		<a href="admincourse.jsp">Management of courses</a></li>
 		<li><a href="adminfaculty.jsp">Management of Faculty</a></li>
+                
 		</ul>	
 		</div>
 		<div class="mainmenu">
 			<div class="label">
-				 <h3>about us</h3>
+				 <h3> <a href="logout.jsp" onclick="sessionvalid(event)">LOG OUT</a></h3>
+                                
 			</div>
 			<div class="niitimage">
 				<img alt="niitimg" src="niitimg.jpg">
@@ -57,5 +95,11 @@
 			</p>
 		
 		</div>	
+            <script>
+                 
+            </script>
 	</body>
 </html>
+<%
+    }
+    %>

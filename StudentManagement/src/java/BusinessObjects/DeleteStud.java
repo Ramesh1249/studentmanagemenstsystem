@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import DataSourceObjects.ConnectionProvider;
 import BusinessObjects.StudView;
 
-public class UpdateStud extends HttpServlet {
+public class DeleteStud extends HttpServlet {
       Connection connection= null;
 	 PreparedStatement statementRs= null;
          HttpServletRequest request1;

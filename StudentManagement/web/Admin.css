@@ -111,9 +111,21 @@ margin-left: 222px;
 height: 500px;
 
 }
+.table-1
+{
+    position: fixed; 
+    top: 0px;
+    
+}
+.recordslist
+{
+    overflow-y: scroll;
+    height: 468px;
+}
 .recordlabels
 {
     height: 200px;
+    
 }
 .label
 {

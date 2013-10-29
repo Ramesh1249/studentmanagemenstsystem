@@ -36,6 +36,34 @@
         <servlet-name>UpdateStud</servlet-name>
         <servlet-class>BusinessObjects.UpdateStud</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SaveStudDao</servlet-name>
+        <servlet-class>BusinessObjects.SaveStudDao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteStu</servlet-name>
+        <servlet-class>BusinessObjects.DeleteStu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addcoursedao</servlet-name>
+        <servlet-class>BusinessObjects.addcoursedao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DataView</servlet-name>
+        <servlet-class>BusinessObjects.DataView</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>studprofile</servlet-name>
+        <servlet-class>BusinessObjects.studprofile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentProfile</servlet-name>
+        <servlet-class>BusinessObjects.StudentProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteStud</servlet-name>
+        <servlet-class>BusinessObjects.DeleteStud</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Loginvalid</servlet-name>
         <url-pattern>/Loginvalid</url-pattern>
@@ -59,6 +87,34 @@
     <servlet-mapping>
         <servlet-name>UpdateStud</servlet-name>
         <url-pattern>/UpdateStud</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveStudDao</servlet-name>
+        <url-pattern>/SaveStudDao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStu</servlet-name>
+        <url-pattern>/DeleteStu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addcoursedao</servlet-name>
+        <url-pattern>/addcoursedao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DataView</servlet-name>
+        <url-pattern>/DataView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>studprofile</servlet-name>
+        <url-pattern>/studprofile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentProfile</servlet-name>
+        <url-pattern>/StudentProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStud</servlet-name>
+        <url-pattern>/DeleteStud</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

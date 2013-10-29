@@ -1,3 +1,39 @@
+
+<%
+    String uname=(String)session.getAttribute("username");
+    if(uname==null)
+    {
+    %>
+    <html>` 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body onload="valid(event)">
+	<div class="logo">
+		<header>
+			<div>
+				<img src="oie_transparent.png" alt="logo" width="230" height="59">
+			</div>
+		</header>
+	</div>
+	<div class="logindiv">
+            <div id="msg" style="text-align: center">Please Login to access the webpage</b>
+            
+            <a href="index.jsp">Click Here to Login</a>
+            </div>
+	</div>
+    
+    
+    
+	</body>
+</html>
+			
+  <%    }else
+      {
+    
+%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
     <%@page import ="java.util.*" %>
@@ -21,7 +57,7 @@
 		<div class="adminmenu">
 		<ul>
 		<li>
-		<a href="facultyprofile.jsp">Profile  </a><br></li>
+		<a href="studentprofile.jsp">Profile  </a><br></li>
 		<li>
 		<a href="studentlist.jsp">Students Details  </a></li>
 		</ul>
@@ -57,3 +93,6 @@
 		</div>	
 	</body>
 </html>
+<%
+    }
+    %>

@@ -1,4 +1,40 @@
 
+<%
+    String uname=(String)session.getAttribute("username");
+    if(uname==null)
+    {
+    %>
+    <html>` 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body onload="valid(event)">
+	<div class="logo">
+		<header>
+			<div>
+				<img src="oie_transparent.png" alt="logo" width="230" height="59">
+			</div>
+		</header>
+	</div>
+	<div class="logindiv">
+            <div id="msg" style="text-align: center">Please Login to access the webpage</b>
+            
+            <a href="index.jsp">Click Here to Login</a>
+            </div>
+	</div>
+    
+    
+    
+	</body>
+</html>
+			
+  <%    }else
+      {
+    
+%>
+
 <%@page import="java.sql.ResultSet"%>
 <%@page import="BusinessObjects.StudView"%>
     
@@ -24,7 +60,7 @@
 <div class="adminmenu">
 <ul style="list-style: none;">
 <li><a href="addstudents.jsp">Add students  </a></li>
-<li><a href="updatestudents.jsp">update student details</a></li>
+<li><a href="updatestudents.jsp">Update student details</a></li>
 <li><a href="deletestudents.jsp">Delete student details</a></li>
 </ul>
 </div>
@@ -58,9 +94,9 @@
                 <tr>
                     <td><%=rs.getString(1) %></td>
                     <td><%=rs.getString(2) %></td>
-                    <td><%=rs.getString(3) %></td>
                     <td><%=rs.getString(4) %></td>
                     <td><%=rs.getString(5) %></td>
+                    <td><%=rs.getString(3) %></td>
                     <td><%=rs.getString(6) %></td>
                     <td><%=rs.getString(7) %></td>
                     <td><%=rs.getString(8) %></td>            
@@ -86,3 +122,6 @@
 </div>
 </body>
 </html>
+<%
+    }
+    %>

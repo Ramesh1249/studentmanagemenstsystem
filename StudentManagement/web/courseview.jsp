@@ -34,9 +34,14 @@
       {
     
 %>
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
-   
+   <%-- heloodsfdsfdsfdsfdsfdsffdsfdsfdffsdd--%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -64,33 +69,33 @@
 		</div>
 		<div class="mainmenu">
 			<div class="label">
-				 <h3>about Niit</h3>
-                        
-			</div>
-			<div class="niitimage">
-				<img alt="niitimg" src="niitimg.jpg">
-			</div>
-			<p align="justify">
-                            
-					NIIT is a leading Global Talent Development Corporation,
-			building skilled manpower pool for global industry 
-			requirements. The company which was set up in 1981, to 
-			help the nascent IT industry overcome its human resource 
-			challenges, has today grown to be amongst world's leading 
-			talent development companies offering learning solutions to
-			Individuals, Enterprises and Institutions across 40 countries.
-			Leading IT journal Dataquest has conferred upon NIIT the "Top 
-			IT Training Company" award successively for the past 20 years, 
-			since the inception of this category.<br><br>
-			NIIT's training solutions in IT, Banking, Finance and Insurance, 
-			Knowledge Process Outsourcing (KPO), Business Process Management(BPM),
-			Executive Management Education, Vocational Skills, School Learning 
-			Solutions and Communication and Professional Life Skills has impacted 
-			over 35 million learners since inception. NIIT's  expertise in learning 
-			content development, training delivery and education process management 
-			make it the most preferred training partner, worldwide.
-			</p>
-		
+				 <h3> <a href="logout.jsp" onclick="sessionvalid(event)">LOG OUT</a></h3>
+                        </div>
+                    <div class="recordlabels">
+         <table style="text-align: center" align="center">
+        <tr class="border">
+        <th class="border1"> Course Details</th>
+        
+    </tr>
+                    <%
+                        Connection con=null;
+                        ResultSet rs1;
+			  Class.forName("oracle.jdbc.driver.OracleDriver");
+		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","hr");
+			Statement ps=con.createStatement();
+			
+			 rs1=ps.executeQuery("select * from coursedata");
+                                     while(rs1.next())
+                                     {
+                                         %>
+                                         
+                                        <tr>
+                    <td><%=rs1.getString(1) %></td>
+                    
+                </tr>
+                                         <%
+                                     }
+                                         %>
 		</div>	
 	</body>
 </html>

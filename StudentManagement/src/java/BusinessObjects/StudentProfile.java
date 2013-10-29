@@ -13,29 +13,28 @@ import javax.servlet.http.HttpSession;
 
 
 
-public class Loginvalid extends HttpServlet {
+public class StudentProfile extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{
-		HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession(true);
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		String uname=request.getParameter("username");
 		String pwd=request.getParameter("password");
-                //session.setAttribute("UserName",uname);
+                session.setAttribute("UserName",uname);
 
                
 		ResultSet rs=LoginDAO.validate(uname,pwd);
 		try {
 			
-			if(rs.next()) //if valid user
+			if(rs.next())
 			{
 				String adm="admin";
 				String stu="student";
 				String fac="faculty";
 				String varb=rs.getString(4);
-                                String userName=rs.getString(2);
-                                session.setAttribute("username",userName);
+                                
 					if(varb.equals(adm))
 					{
 					
@@ -52,20 +51,14 @@ public class Loginvalid extends HttpServlet {
 					}
 						
 			}
-                        else //invalid user
+			else
 			{	
-			//	String msg="Hello";
-                          //      out.print(msg);
-			//	String errorp= "http://localhost:8084/StudentManagement/index.jsp";
-			//	response.sendRedirect(errorp);
-                          //      {
- String strExpired = (String) session.getAttribute("Login_Expired");
-response.sendRedirect("index.jsp");
-
-}
+				out.println("<html> <head><title> Error msg</title></head><body>alert('enter correct username and opassword')</body></html>");
+				String errorp= "http://localhost:8084/StudentManagement/Login.jsp";
+				response.sendRedirect(errorp);
 				
 				
-			
+			}
 	
 		} 
                 catch (SQLException e) 

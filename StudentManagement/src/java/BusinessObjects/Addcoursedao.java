@@ -3,7 +3,7 @@ import java.sql.*;
 import DataSourceObjects.*;
 import TransferObjects.*;
 
-public class AddstudDAO 
+public class Addcoursedao
 {
     Connection con=null;
     PreparedStatement pstmt=null;
@@ -16,24 +16,11 @@ public class AddstudDAO
         try
         {
     	con=ConnectionProvider.getInstance().getConnectionDB();
-         pstmt=con.prepareStatement("select id_seq.nextval from dual");
-         rs1=pstmt.executeQuery();
-         int id = 0;
-         if(rs1.next())
-         {
-             //System.out.print("hello");
-            id = rs1.getInt("NextVal");
-         
-    	pstmt=con.prepareStatement("Insert into logintable(id,username,password,usertype) values(" + id + ", '"+ bean.getuserName() +"', '"+ bean.getpasword() +"', '"+ bean.getusertype() +"')");    	   
+                 
+    	pstmt=con.prepareStatement("Insert into coursedata(details) values( '"+ bean.getcoursetxt() +"')");    	   
     	rowsAffected=pstmt.executeUpdate();
+        return rowsAffected;
         
-        
-        PreparedStatement pstmt1=con.prepareStatement("Insert into userdata(id,firstname,lastname,course,address,mobile) values("+id+",'"+ bean.getfirstname() +"', '"+ bean.getlastname() +"', '"+ bean.getcourse() +"', '"+ bean.getaddress() +"', "+ bean.getmobile() +")");
-        rowsAffected=pstmt1.executeUpdate();
-           
-        
-    	return rowsAffected;
-        }
         }catch(Exception e){
             System.out.println("exception occured");
            

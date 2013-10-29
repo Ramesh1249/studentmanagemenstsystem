@@ -5,9 +5,11 @@ public class LoginDAO
 	{
 		ResultSet rs=null;
 		boolean status=false;
+                Connection con;
+            
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","hr");
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","hr");
 			Statement ps=con.createStatement();
 			
 			 rs=ps.executeQuery("select * from logintable where username='"+ uname +"' and password='" + pwd +"'");
@@ -16,9 +18,10 @@ public class LoginDAO
 		}
 		catch(Exception e)
 		{
+                    
 			System.out.println("something got wrong");
 			System.out.println(e);
 		}
-		return rs;
+                return rs;
 	}
 }

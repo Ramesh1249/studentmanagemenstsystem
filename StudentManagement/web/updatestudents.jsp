@@ -1,4 +1,39 @@
 
+<%
+    String uname=(String)session.getAttribute("username");
+    if(uname==null)
+    {
+    %>
+    <html>` 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body onload="valid(event)">
+	<div class="logo">
+		<header>
+			<div>
+				<img src="oie_transparent.png" alt="logo" width="230" height="59">
+			</div>
+		</header>
+	</div>
+	<div class="logindiv">
+            <div id="msg" style="text-align: center">Please Login to access the webpage</b>
+            
+            <a href="index.jsp">Click Here to Login</a>
+            </div>
+	</div>
+    
+    
+    
+	</body>
+</html>
+			
+  <%    }else
+      {
+    
+%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="BusinessObjects.StudView"%>
 <%@page import="java.sql.*"%>
@@ -37,16 +72,18 @@
     <div class="recordlabels">
     <form method="POST" name="form">  
         <table style="text-align: center">
-        <tr class="border">
-        <th class="border1"> ID</th>
-        <th class="border2">UserName</th>
-        <th class="border2">First Name</th>
-        <th class="border2">Last Name</th>
-        <th class="border2">Password</th>
-        <th class="border6">Course</th>
-        <th class="border2">Mobile</th>
-        <th class="border8">Address</th>
-    </tr>
+            <div class="tableheader">
+                <tr class="border">
+                <th class="border1"> ID</th>
+                <th class="border2">UserName</th>
+                <th class="border2">First Name</th>
+                <th class="border2">Last Name</th>
+                <th class="border2">Password</th>
+                <th class="border6">Course</th>
+                <th class="border2">Mobile</th>
+                <th class="border8">Address</th>
+                </tr>
+            </div>
             <%
             StudView obj=new StudView();
             ResultSet rs=obj.getRecord();
@@ -57,11 +94,11 @@
              {
              %>
                 <tr id="valuser">
-                    <td id="free" ><%=rs.getString(1) %></td>
+                    <td id="free" ><%=rs.getInt(1) %></td>
                     <td id="users" class="idm"><%=rs.getString(2) %></td>
-                    <td><%=rs.getString(3) %></td>
                     <td><%=rs.getString(4) %></td>
                     <td><%=rs.getString(5) %></td>
+                    <td><%=rs.getString(3) %></td>
                     <td><%=rs.getString(6) %></td>
                     <td><%=rs.getString(7) %></td>
                     <td><%=rs.getString(8) %></td>   
@@ -81,9 +118,7 @@
 		%>
       </table>
     </form>
-      <input type="submit" name="Update" value="UPDATE">
-      <input type="submit" name="Save" value="SAVE">
-      <input type="reset" name="cancel" value="CANCEL">
+     
 </div>
 </div>
 </div>
@@ -111,3 +146,6 @@ function editRecord(id){
 </script>
 </body>
 </html>
+<%
+    }
+    %>

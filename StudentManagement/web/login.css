@@ -11,9 +11,10 @@ html
 body
 
 	{
-		/*background-color: #2E2C2C;*/
-		background-image:url(D:/Ramesh/webpages/weather1.jpg);
+		//background-color: #2E2C2C;
+		background-image:url(weather1.jpg);
 		font-family: Helvetica;
+                
 		
 		
 	}
@@ -34,16 +35,24 @@ body
 	img
 	{
 		margin: auto;
-		padding-top: 4%;
-		padding-bottom: 4%;
+		opacity:0.4;
+filter:alpha(opacity=40);
+		padding-bottom: 2%;
+                margin-left: 171px;
+                
+		height: 73px;
 		
 		
 
-	}
+	
+		margin-left: 171px;
+		
+}
 .logindiv
 	{
 		margin:auto;
-    	background-color:rgb(235,235,235);
+    	
+		background-color: rgba(235,235,235,0.9);
     	width: 64%;
     	height:300px;
     	border-radius: 10px;

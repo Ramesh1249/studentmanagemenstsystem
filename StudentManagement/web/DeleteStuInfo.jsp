@@ -1,4 +1,5 @@
 
+
 <%
     String uname=(String)session.getAttribute("username");
     if(uname==null)
@@ -37,17 +38,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="BusinessObjects.*,TransferObjects.*"%>
  
- <jsp:useBean id="dao" class="BusinessObjects.AddstudDAO" scope="application"></jsp:useBean>
- <jsp:useBean id="bean" class="TransferObjects.AddstudBean" scope="application"></jsp:useBean>
- <jsp:setProperty property="studId" name="bean" param="studId"/>
- <jsp:setProperty property="userName" name="bean" param="userName"/>
+ <jsp:useBean id="dao" class="BusinessObjects.DeleteStudDao" scope="application"></jsp:useBean>
+ <jsp:useBean id="bean" class="TransferObjects.SaveStudBean" scope="application"></jsp:useBean>
+ <jsp:setProperty property="studId" name="bean" param="studentId"/>
+ <jsp:setProperty property="userName" name="bean" param="studentname"/>
  <jsp:setProperty property="firstname" name="bean" param="firstname"/>
- <jsp:setProperty property="lastname" name="bean" param="lastname"/>
+ <jsp:setProperty property="lastname" name="bean" param="studentname"/>
  <jsp:setProperty property="mobile" name="bean" param="mobile"/>
  <jsp:setProperty property="usertype" name="bean" param="usertype"/>
- <jsp:setProperty property="pasword" name="bean" param="pasword"/>
- <jsp:setProperty property="course" name="bean" param="course" />
- <jsp:setProperty property="address" name="bean" param="address" /> 
+ <jsp:setProperty property="pasword" name="bean" param="studentpassword"/>
+ <jsp:setProperty property="course" name="bean" param="studentcourse" />
+ <jsp:setProperty property="address" name="bean" param="studentaddress" /> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -80,16 +81,16 @@
            
 
 <%
-    int Status=dao.addRecords(bean);
+    int Status=dao.deleteRecords(request);
     if(Status>0)
     {
-    	out.println("<b>Successfully Added the Data!!!!</b><br>");
-    	out.println("<b><a href=adminstudents.jsp>View added details </a></b>");
+    	out.println("<b>Successfully deleted !!!!</b><br>");
+    	out.println("<b><a href=deletestudents.jsp>GO BACK </a></b>");
     }
     else
     {
-    	out.println("<b>Data Cannot Added!!!! Enter correct data and fill all fields</b><br>");
-    	out.println("<b><a href=addstudents.jsp>GO BACK</a></b>");
+    	out.println("<b>Data Cannot deleted!!!!</b><br>");
+    	out.println("<b><a href=deletestudents.jsp>GO BACK</a></b>");
     	
     }
 %>
